@@ -2,11 +2,14 @@
 title: "Activity Monitoring Data Assessment"
 author: "Lisa Seghers"
 date: "September 6, 2018"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.path = "figs/fig-")
 ```
 
 

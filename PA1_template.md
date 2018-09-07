@@ -2,7 +2,9 @@
 title: "Activity Monitoring Data Assessment"
 author: "Lisa Seghers"
 date: "September 6, 2018"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -16,6 +18,26 @@ First, the dataset is read in from the working directory.  Any relevant librarie
 ```r
 library(readr)
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 library(ggplot2)
 activity <- read_csv("activity.csv")
 ```
@@ -54,7 +76,7 @@ hist(dailysteps$steps,
      xlab = "Step Totals")
 ```
 
-![plot of chunk hist1](figure/hist1-1.png)
+![](figs/fig-hist1-1.png)<!-- -->
 
 Calculate and report the mean and median of the total number of steps taken per day.
 
@@ -90,7 +112,7 @@ with(intervalSteps, plot(interval, steps, type = "l", lwd = 2,
                          main = "Average Steps per 5 Minute Interval Across All Days"))
 ```
 
-![plot of chunk intervalplot](figure/intervalplot-1.png)
+![](figs/fig-intervalplot-1.png)<!-- -->
 
 
 ```r
@@ -139,7 +161,7 @@ hist(dailystepsImputed$steps,
      xlab = "Step Totals")
 ```
 
-![plot of chunk hist2](figure/hist2-1.png)
+![](figs/fig-hist2-1.png)<!-- -->
 
 Calculate and report the mean and median of the total number of steps taken per day, including imputed values.
 
@@ -187,7 +209,7 @@ p <- g + geom_line(aes(color = week), size = 1.2) + facet_wrap(week~., nrow = 2)
 print(p)
 ```
 
-![plot of chunk weekplot](figure/weekplot-1.png)
+![](figs/fig-weekplot-1.png)<!-- -->
 
 Weekdays have an earlier rise in activity around 5:30 am and a higher spike of activity between 8 and 9am than weekends, but weekends show more consistent activity all day during waking hours.
 
